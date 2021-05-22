@@ -1,3 +1,10 @@
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
+
 const StudentView = (props) => {
   const {student} = props;
 
@@ -19,7 +26,7 @@ const StudentView = (props) => {
     )
   }
 
-  //STUDENT WITH CAMPUS 
+  //STUDENT WITH CAMPUS
   else{
     return (
       <div>
@@ -29,9 +36,11 @@ const StudentView = (props) => {
         <p>{student.gpa}</p>
 
         <div className="campus">
-          {student.campus.image}
-          {student.campus.name}
-          {student.campus.description}
+          <img src={student.campus.image}/>
+          <Link to={`/campus/${student.campus.id}`}>
+            {student.campus.name}
+          </Link>
+          <p> {student.campus.description} </p> 
         </div>
       </div>
     );
