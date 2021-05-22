@@ -1,60 +1,51 @@
 import * as at from './actionTypes';
 
 // ACTION CREATORS;
-/** needs to be an action creator
- * for each action type
- */
 
-// All campuses
+// --- BEGIN CAMPUS ---
+
 export const fetchAllCampuses = (campuses) => {
-  return {
-    type: at.FETCH_ALL_CAMPUSES,
-    payload: campuses,
-  };
+  return { type: at.FETCH_ALL_CAMPUSES, payload: campuses };
 };
 
-//Single campus
 export const fetchCampus = (campus) => {
-  return {
-    type: at.FETCH_CAMPUS,
-    payload: campus,
-  };
+  return { type: at.FETCH_CAMPUS, payload: campus };
 };
 
-//All students
+export const addCampus = (campus) => {
+  return { type: at.ADD_CAMPUS, payload: campus };
+}
+
+export const editCampus = (campus) => {
+  return { type: at.EDIT_CAMPUS, payload: campus };
+}
+
+export const deleteCampus = (campusId) => {
+  return { type: at.DELETE_CAMPUS, payload: campusId };
+}
+
+// --- END CAMPUS ---
+
+// --- BEGIN STUDENTS ---
+
 export const fetchAllStudents = (students) => {
-  return {
-    type: at.FETCH_ALL_STUDENTS,
-    payload: students,
-  };
+  return { type: at.FETCH_ALL_STUDENTS, payload: students };
+};
+
+export const fetchStudent = (student) => {
+  return { type: at.FETCH_STUDENT, payload: student };
 };
 
 export const addStudent = (student) => {
-  return {
-    type: at.ADD_STUDENT,
-    payload: student,
-  };
+  return { type: at.ADD_STUDENT, payload: student };
+};
+
+export const editStudent = (student) => {
+  return { type: at.EDIT_STUDENT, payload: student };
 };
 
 export const deleteStudent = (studentId) => {
-  return {
-    type: at.DELETE_STUDENT,
-    payload: studentId,
-  };
+  return { type: at.DELETE_STUDENT, payload: studentId };
 };
 
-
-export const editStudent = (student) => {
-  return {
-    type: at.EDIT_STUDENT,
-    payload: student,
-  };
-};
-
-//Single student
-export const fetchStudent = (student) => {
-  return {
-    type: at.FETCH_STUDENT,
-    payload: student,
-  };
-};
+// --- END STUDENTS ---

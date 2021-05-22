@@ -5,14 +5,15 @@ import { fetchCampusThunk } from "../../store/thunks";
 import { CampusView } from "../views";
 
 class CampusContainer extends Component {
-  componentDidMount() {
+
+  componentDidMount(){
     //getting campus ID from url
     this.props.fetchCampus(this.props.match.params.id);
   }
 
   render() {
     return (
-      <CampusView 
+      <CampusView
         campus={this.props.campus}
       />
     );

@@ -6,15 +6,17 @@ const AllStudentsView = (props) => {
     return <div>There are no students.</div>;
   }
 
+  let name = student.firstname + " " + student.lastname;
+
   return (
     <div>
       {props.allStudents.map((student) => (
         <div key={student.id}>
           <Link to={`/student/${student.id}`}>
-            <h1>{student.name}</h1>
+            <h1>{name}</h1>
           </Link>
           <img src={student.image}/>
-          <p>{student.name}</p>
+          <p>{student.campus.name}</p>
         </div>
       ))}
     </div>

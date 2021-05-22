@@ -8,13 +8,9 @@ const allStudents = (state=[], action) => {
     case at.ADD_STUDENT:
       return [...state, action.payload]
     case at.DELETE_STUDENT:
-      return state.filter(student => student.id!==action.payload);
+      return state.filter(student => student.id !== action.payload);
     case at.EDIT_STUDENT:
-      return state.map(student => { 
-        return (
-          student.id===action.payload.id ? action.payload : student
-        );
-      });
+      return state.map(student => student.id === action.payload.id ? action.payload : student);
     default:
       return state;
   }
