@@ -14,7 +14,9 @@ const CampusView = (props) => {
 
   if(!campus){
     return (
-      <Empty type = 'Campuses' buttonLabel = 'Add Campus' link = '/add-campus'/>
+      <div>
+        <Empty type = 'Campuses' buttonLabel = 'Add Campus' link = '/add-campus'/>
+      </div>
     );
   }
 
