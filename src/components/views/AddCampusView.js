@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { FormGroup, TextField, Container, Button } from '@material-ui/core';
 import validator from 'validator';
+import './style/form.css';
 
 class AddCampusView extends Component {
   constructor(props) {
@@ -64,11 +65,15 @@ class AddCampusView extends Component {
 
     // submit
     this.props.addCampus(campus);
+    this.props.history.push(`/campuses/${campus.id}`)
   }
 
   render() {
     return (
       <Container>
+        <div className ="form-container">
+        <h1 className="form-heading">Add Campus</h1>
+        </div>
         <FormGroup onSubmit={this.submit}>
           <TextField
             id="name"
@@ -105,7 +110,10 @@ class AddCampusView extends Component {
             value={this.state.imgURL}
             error={Boolean(this.state.errors.imgURL)}
             helperText={this.state.errors.imgURL}/>
-          <Button variant="contained" disabled={!this.validInput()} onClick={this.submit}>Submit</Button>
+          <div className="button-group">
+            <Button className="button" variant="contained" color="primary" disabled={!this.validInput()} onClick={this.submit}>Submit</Button>
+            <Button className="button" variant="contained" color="secondary">Cancel</Button>
+          </div>
         </FormGroup>
       </Container>
     );

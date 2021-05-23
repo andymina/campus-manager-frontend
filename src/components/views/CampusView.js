@@ -16,16 +16,16 @@ const CampusView = (props) => {
           <h1>{campus.name}</h1>
           <p>{campus.address}</p>
           <p>{campus.description}</p>
-          <div id = "buttons">
+          <Link to={`/edit-campus/${campus.id}`}>
             <Button variant="contained" color="primary">
               Edit
             </Button>
+          </Link>
             <Link to={'/campuses'} >
               <Button variant="contained" color="primary" onClick={() => props.deleteCampus(campus.id) }>
                 Delete
               </Button>
-            </Link>
-          </div>
+          </Link>
         </div>
       </div>
       <div id = "student">

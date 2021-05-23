@@ -27,9 +27,11 @@ const StudentView = (props) => {
             <p>{student.email}</p>
             <p>{student.gpa}</p>
 
-            <Button variant="contained" color="primary">
-                Edit
-            </Button>
+            <Link to={`/edit-student/${student.id}`}>
+              <Button variant="contained" color="primary">
+                  Edit
+              </Button>
+            </Link>
 
             <Link to={'/students'} >
               <Button variant="contained" color="primary" onClick={() => props.deleteStudent(student.id)}>
@@ -52,14 +54,16 @@ const StudentView = (props) => {
   return (
     <div>
     <div id = "details">
-      <img class = "school" src={student.imageUrl} alt="student-pic"/>
+      <img className = "school" src={student.imageUrl} alt="student-pic"/>
         <div id = "text">
           <h1>{student.firstname + " " + student.lastname}</h1>
           <p>{student.email}</p>
           <p>{student.gpa}</p>
+          <Link to={`/edit-student/${student.id}`}>
             <Button variant="contained" color="primary">
-              Edit
+                Edit
             </Button>
+          </Link>
             <Link to={'/students'} >
               <Button variant="contained" color="primary" onClick={() => props.deleteStudent(student.id)}>
                 Delete
