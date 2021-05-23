@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   title: {
     flexGrow: 1,
@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   greeting:{
     display: 'flex',
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#fcb6bb',
     width: "50%",
     margin: "auto",
   },
@@ -34,9 +34,7 @@ const HomePageView = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-
-
-      <div className={classes.greeting}><h1>Home Page</h1></div>
+      <div className={classes.greeting}><h1>Campus Manager</h1></div>
     </div>
   );
 }

@@ -99,6 +99,9 @@ class EditStudentView extends Component {
   render() {
     return (
       <Container>
+        <div className ="form-container">
+          <h1 className="form-heading">Edit Student</h1>
+        </div>
         <FormGroup onSubmit={this.submit}>
           <TextField
             id="firstname"
@@ -160,7 +163,10 @@ class EditStudentView extends Component {
               })
             }
           </TextField>
-          <Button variant="contained" disabled={!this.validInput()} onClick={this.submit}>Submit</Button>
+          <div className="button-group">
+            <Button className="button" variant="contained" color="primary" disabled={!this.validInput()} onClick={this.submit}>Submit</Button>
+            <Button className="button" variant="contained" color="secondary">Cancel</Button>
+          </div>
         </FormGroup>
       </Container>
     );

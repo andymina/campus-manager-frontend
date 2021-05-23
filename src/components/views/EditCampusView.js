@@ -81,6 +81,9 @@ class EditCampusView extends Component {
   render() {
     return (
       <Container>
+        <div className ="form-container">
+          <h1 className="form-heading">Edit Campus</h1>
+        </div>
         <FormGroup onSubmit={this.submit}>
           <TextField
             id="name"
@@ -117,7 +120,10 @@ class EditCampusView extends Component {
             value={this.state.imgURL}
             error={Boolean(this.state.errors.imgURL)}
             helperText={this.state.errors.imgURL}/>
-          <Button variant="contained" disabled={!this.validInput()} onClick={this.submit}>Submit</Button>
+            <div className="button-group">
+              <Button className="button" variant="contained" color="primary" disabled={!this.validInput()} onClick={this.submit}>Submit</Button>
+              <Button className="button" variant="contained" color="secondary">Cancel</Button>
+            </div>
         </FormGroup>
       </Container>
     );

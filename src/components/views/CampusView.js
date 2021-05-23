@@ -23,19 +23,21 @@ const CampusView = (props) => {
   return (
     <div>
       <div id = "details">
-        <img class = "school" src={campus.imageUrl} alt="picture of college"/>
+        <img className = "school" src={campus.imageUrl} alt="picture of college"/>
         <div id = "text">
           <h1>{campus.name}</h1>
           <p>{campus.address}</p>
           <p>{campus.description}</p>
-          <div id = "buttons">
-            <Button variant="contained" color="primary">
-              Edit
-            </Button>
-            <Link to={'/campuses'} >
-              <Button variant="contained" color="primary" onclick={() => props.deleteCampus(campus.id) }>
-                Delete
+          <div id="buttons">
+            <Link to={`/edit-campus/${campus.id}`}>
+              <Button variant="contained" color="primary">
+                Edit
               </Button>
+            </Link>
+              <Link to={'/campuses'} >
+                <Button variant="contained" color="primary" onClick={() => props.deleteCampus(campus.id) }>
+                  Delete
+                </Button>
             </Link>
           </div>
         </div>

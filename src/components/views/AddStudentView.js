@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { FormGroup, TextField, Container, Button, MenuItem } from '@material-ui/core';
 import validator from 'validator';
+import './style/form.css';
 
 class AddStudentView extends Component {
   constructor(props) {
@@ -82,6 +83,9 @@ class AddStudentView extends Component {
   render() {
     return (
       <Container>
+        <div className ="form-container">
+          <h1 className="form-heading">Add Student</h1>
+        </div>
         <FormGroup onSubmit={this.submit}>
           <TextField
             id="firstname"
@@ -143,7 +147,10 @@ class AddStudentView extends Component {
               })
             }
           </TextField>
-          <Button variant="contained" disabled={!this.validInput()} onClick={this.submit}>Submit</Button>
+          <div className="button-group">
+            <Button className="button" variant="contained" color="primary" disabled={!this.validInput()} onClick={this.submit}>Submit</Button>
+            <Button className="button" variant="contained" color="secondary">Cancel</Button>
+          </div>
         </FormGroup>
       </Container>
     );
