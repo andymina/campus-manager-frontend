@@ -12,6 +12,10 @@ class AllStudentsContainer extends Component{
     this.props.fetchAllStudents();
   }
 
+  componentDidUpdate() {
+    this.props.fetchAllStudents();
+  }
+
   render() {
     return (
       <AllStudentsView

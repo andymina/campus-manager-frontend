@@ -9,6 +9,10 @@ class AllCampusesContainer extends Component {
     this.props.fetchAllCampuses();
   }
 
+  componentDidUpdate() {
+    this.props.fetchAllCampuses();
+  }
+
   render() {
     return (
       <AllCampusesView
