@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "./Header.js"
 import Empty from "./EmptyComponent.js"
 
+
 const AllCampusesView = (props) => {
   if (!props.allCampuses.length) {
     return (

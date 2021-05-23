@@ -71,7 +71,6 @@ const StudentView = (props) => {
     <div id = "campus">
       <Header heading ='Campus' buttonLabel ='Change Campus'/>
       <CampusCardView campus={student.campus}/>
-
     </div>
 
     </div>
