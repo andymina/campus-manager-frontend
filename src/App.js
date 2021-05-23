@@ -5,12 +5,10 @@ import { Switch, Route } from "react-router-dom";
 //Components
 import {
   HomePageContainer,
-  CampusContainer,
-  StudentContainer,
-  AllCampusesContainer,
-  AllStudentsContainer,
-  AddCampusContainer,
-  AddStudentContainer
+  CampusContainer, StudentContainer,
+  AllCampusesContainer, AllStudentsContainer,
+  AddCampusContainer, EditCampusContainer,
+  AddStudentContainer, EditStudentContainer
 } from './components/containers';
 import NavBar from "./components/views/NavBar.js"
 
@@ -28,6 +26,8 @@ const App = () => {
         <Route exact path="/campus/:id" component={CampusContainer} />
         <Route exact path="/add-campus" component={AddCampusContainer} />
         <Route exact path="/add-student" component={AddStudentContainer}/>
+        <Route exact path="/edit-student/:id" component={EditStudentContainer}/>
+        <Route exact path="/edit-campus/:id" component={EditCampusContainer}/>
         <Route exact path="/students" component={AllStudentsContainer} />
         <Route exact path="/student/:id" component={StudentContainer} />
       </Switch>

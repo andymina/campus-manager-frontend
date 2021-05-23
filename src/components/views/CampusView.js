@@ -29,7 +29,7 @@ const CampusView = (props) => {
               Edit
             </Button>
             <Link to={'/campuses'} >
-              <Button variant="contained" color="primary" onclick={props.deleteCampus(campus.id) }>
+              <Button variant="contained" color="primary" onclick={() => props.deleteCampus(campus.id) }>
                 Delete
               </Button>
             </Link>

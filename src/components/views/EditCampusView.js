@@ -2,16 +2,28 @@ import { Component } from 'react';
 import { FormGroup, TextField, Container, Button } from '@material-ui/core';
 import validator from 'validator';
 
-class AddCampusView extends Component {
+class EditCampusView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      address: '',
-      description: '',
-      imgURL: '',
+      name: props.campus.name || '',
+      address: props.campus.address || '',
+      description: props.campus.description || '',
+      imgURL: props.campus.imageUrl || '',
       errors: {}
     };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.setState({
+        name: this.props.campus.name,
+        address: this.props.campus.address,
+        description: this.props.campus.description,
+        imgURL: this.props.campus.imageUrl,
+        errors: {}
+      });
+    }
   }
 
   handleInputChange = (event) => {
@@ -50,7 +62,6 @@ class AddCampusView extends Component {
     valid &= this.verifyInput({ target: { id: 'address' } }, false);
     valid &= this.verifyInput({ target: { id: 'description' } }, false);
     valid &= this.verifyInput({ target: { id: 'imgURL' } }, false);
-
     return valid;
   }
 
@@ -59,11 +70,12 @@ class AddCampusView extends Component {
       name: this.state.name,
       address: this.state.address,
       description: this.state.description,
-      imageUrl: this.state.imgURL ? this.state.imgURL : undefined
+      imageUrl: this.state.imgURL ? this.state.imgURL : undefined,
+      id: this.props.campus.id
     };
 
     // submit
-    this.props.addCampus(campus);
+    this.props.editCampus(campus);
   }
 
   render() {
@@ -112,4 +124,4 @@ class AddCampusView extends Component {
   }
 }
 
-export default AddCampusView;
+export default EditCampusView;
