@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { FormGroup, TextField, Container, Button } from '@material-ui/core';
+import { Redirect } from 'react-router-dom';
 import validator from 'validator';
 
 class EditCampusView extends Component {
@@ -10,7 +11,8 @@ class EditCampusView extends Component {
       address: props.campus.address || '',
       description: props.campus.description || '',
       imgURL: props.campus.imageUrl || '',
-      errors: {}
+      errors: {},
+      submit: false
     };
   }
 
@@ -76,9 +78,13 @@ class EditCampusView extends Component {
 
     // submit
     this.props.editCampus(campus);
+    this.setState({ submit: true });
   }
 
   render() {
+    if (this.state.submit)
+      return <Redirect to={`/campus/${this.props.campus.id}`}/>
+    
     return (
       <Container>
         <div className ="form-container">
@@ -122,7 +128,7 @@ class EditCampusView extends Component {
             helperText={this.state.errors.imgURL}/>
             <div className="button-group">
               <Button className="button" variant="contained" color="primary" disabled={!this.validInput()} onClick={this.submit}>Submit</Button>
-              <Button className="button" variant="contained" color="secondary">Cancel</Button>
+              <Button className="button" variant="contained" color="secondary" onClick={() => this.setState({ submit: true })}>Cancel</Button>
             </div>
         </FormGroup>
       </Container>

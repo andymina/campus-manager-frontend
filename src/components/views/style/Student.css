@@ -9,6 +9,9 @@ h1 {
 
 #details {
   display: flex;
+  justify-content: space-around;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 #details img{
@@ -18,10 +21,21 @@ h1 {
 
 #text {
   display: inline-block;
-
+  width: 40%;
 }
 
 #campus h1{
   font-size: 40px;
   text-align: center;
+}
+
+#student-head {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#buttons{
+  display: flex;
+  justify-content: space-around;
 }

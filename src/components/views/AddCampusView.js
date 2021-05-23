@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { FormGroup, TextField, Container, Button } from '@material-ui/core';
+import { Link, Redirect } from 'react-router-dom';
 import validator from 'validator';
 import './style/form.css';
 
@@ -11,7 +12,9 @@ class AddCampusView extends Component {
       address: '',
       description: '',
       imgURL: '',
-      errors: {}
+      errors: {},
+      cancel: false,
+      submit: false
     };
   }
 
@@ -55,7 +58,7 @@ class AddCampusView extends Component {
     return valid;
   }
 
-  submit = () => {
+  submit = async () => {
     let campus = {
       name: this.state.name,
       address: this.state.address,
@@ -64,11 +67,17 @@ class AddCampusView extends Component {
     };
 
     // submit
-    this.props.addCampus(campus);
-    this.props.history.push(`/campuses/${campus.id}`)
+    let data = await this.props.addCampus(campus);
+    this.setState({ submit: true, id: data.id });
   }
 
   render() {
+    if (this.state.cancel)
+      return <Redirect to="/campuses" />
+    
+    if (this.state.submit)
+      return <Redirect to={`/campus/${this.state.id}`}/>
+    
     return (
       <Container>
         <div className ="form-container">
@@ -112,7 +121,7 @@ class AddCampusView extends Component {
             helperText={this.state.errors.imgURL}/>
           <div className="button-group">
             <Button className="button" variant="contained" color="primary" disabled={!this.validInput()} onClick={this.submit}>Submit</Button>
-            <Button className="button" variant="contained" color="secondary">Cancel</Button>
+            <Button className="button" variant="contained" color="secondary" onClick={() => this.setState({ cancel: true })}>Cancel</Button>
           </div>
         </FormGroup>
       </Container>

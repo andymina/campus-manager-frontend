@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Header from "./Header.js"
 import Empty from "./EmptyComponent.js"
+import CampusCardView from "./CampusCard.js";
+
 
 const AllCampusesView = (props) => {
   if (!props.allCampuses.length) {
@@ -17,10 +19,7 @@ const AllCampusesView = (props) => {
       <Header heading ='All Campuses' buttonLabel ='Add Campus' link = '/add-campus'/>
       {props.allCampuses.map((campus) => (
         <div key={campus.id}>
-          <Link to={`/campus/${campus.id}`}>
-            <h1>{campus.name}</h1>
-          </Link>
-          <p>{campus.description}</p>
+          <CampusCardView campus={campus}/>
         </div>
       ))}
     </div>

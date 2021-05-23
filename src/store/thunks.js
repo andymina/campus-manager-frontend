@@ -26,6 +26,7 @@ export const addCampusThunk = (campus) => async (dispatch) => {
   try {
     const { data } = await axios.post(`/api/campuses`, campus); // TODO: ask stacey about promise
     dispatch(ac.addCampus(data));
+    return data;
   } catch (err) {
     console.error(err);
   }
@@ -73,6 +74,7 @@ export const addStudentThunk = (student) => async (dispatch) => {
   try {
     let res = await axios.post(`/api/students`, student);
     dispatch(ac.addStudent(res.data));
+    return res.data;
   } catch(err) {
     console.error(err);
   }
