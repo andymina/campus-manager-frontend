@@ -1,32 +1,35 @@
-#div {
-  margin-left: 15%;
-  margin-right: 15%;
-}
-
 h1 {
   font-size: 50px;
 }
 
 #details {
   display: flex;
+  justify-content: space-around;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 #details img.school {
   float: left;
-  width: 50%;
+  width: 40%;
 }
 
 #text {
   display: inline-block;
-
+  width: 40%;
 }
 
 /* #text Button {
   display: flex;
   justify-content: space-between;
 } */
+#buttons {
+  display: flex;
+  justify-content: space-around;
+}
 
-#student h1{
-  font-size: 40px;
-  text-align: center;
+#student-head {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
